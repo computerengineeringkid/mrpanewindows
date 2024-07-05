@@ -1,0 +1,249 @@
+/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap');
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Comfortaa', sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    cursor: none; /* Hide the default cursor */
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    flex: 1;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #004080;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: background 0.3s ease, transform 0.1s ease, border-color 0.3s ease;
+    z-index: 9999;
+}
+
+.custom-cursor.hidden {
+    display: none;
+}
+
+.custom-cursor.clicked {
+    transform: scale(0.5);
+    background: #004080;
+}
+
+.custom-cursor.black {
+    border-color: #000;
+}
+
+/* Header Styles */
+header {
+    background: #004080;
+    color: #fff;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+header h1 {
+    margin: 0;
+    padding: 0 20px;
+    font-size: 1.8em;
+    text-align: center;
+}
+
+nav {
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+    color: #ffdd57;
+}
+
+/* Hero Section Styles */
+.hero {
+    background: url('windowclean1.jpg') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    height: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero h2 {
+    margin: 0;
+    font-size: 3em;
+    animation: slideInFromLeft 1s ease-in-out;
+}
+
+.hero p {
+    font-size: 1.2em;
+    animation: slideInFromRight 1s ease-in-out;
+}
+
+/* Section Styles */
+section {
+    padding: 100px 0 60px; /* Added padding-top to account for fixed header */
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #004080;
+}
+
+.service-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: scale(1.05);
+}
+
+/* Contact Form Styles */
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input, form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #004080;
+}
+
+form button {
+    background: #004080;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+form button:hover {
+    background: #003366;
+    transform: scale(1.05);
+}
+
+/* Footer Styles */
+footer {
+    background: #004080;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto; /* Push the footer to the bottom */
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInFromLeft {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes slideInFromRight {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.4em;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .hero h2 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .service-item {
+        padding: 15px;
+    }
+
+    form label, form input, form textarea, form button {
+        font-size: 1em;
+    }
+}
